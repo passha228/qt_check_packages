@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebChannel Example</title>
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            new QWebChannel(qt.webChannelTransport, function(channel) {
+                var webChannelExample = channel.objects.webChannelExample;
+                document.getElementById("button").addEventListener("click", function() {
+                    webChannelExample.receiveMessage("Hello from JavaScript!");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="button">Click me!</button>
+</body>
+</html>
