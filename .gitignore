@@ -1,0 +1,5 @@
+build
+AppDir
+deb_package
+squashfs-root
+*.AppImage

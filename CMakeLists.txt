@@ -3,6 +3,8 @@ project(WebChannelExample)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_PREFIX_PATH "/opt/Qt5.15.2")
+
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets WebChannel WebEngineWidgets Test)
 
 # Основные исходные файлы

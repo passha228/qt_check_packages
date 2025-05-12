@@ -1,21 +1,13 @@
-#ifndef WEBCHANNELEXAMPLE_H
-#define WEBCHANNELEXAMPLE_H
+#include "webchannelexample.h"
+#include <QDebug>
 
-#include <QObject>
-#include <QString>
-
-class WebChannelExample : public QObject
+WebChannelExample::WebChannelExample(QObject *parent) : QObject(parent)
 {
-    Q_OBJECT
+}
 
-public:
-    explicit WebChannelExample(QObject *parent = nullptr);
-
-public slots:
-    void receiveMessage(const QString &message);
-
-signals:
-    void sendMessage(const QString &message);
-};
-
-#endif // WEBCHANNELEXAMPLE_H
+void WebChannelExample::receiveMessage(const QString &message)
+{
+    qDebug() << "Message received from JavaScript:" << message;
+    // Можно отправить ответ обратно
+    emit sendMessage(QString("C++ received: %1").arg(message));
+}
